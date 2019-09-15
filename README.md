@@ -7,3 +7,6 @@ Each function is handled by a command. The commands are grouped into cathegories
 ## Category Info
 
 ### clima command
+
+Invocking : !ernestbot clima <city name>
+Where <city name> is part of the name of the city you need to bbbbb
