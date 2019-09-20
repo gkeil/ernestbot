@@ -16,14 +16,17 @@ return function ($client) {
                 'description' => 'Replies to hello salutation.',
                 'guildOnly' => false
             ));
+            echo "In the command Contructor".PHP_EOL;
+            
         }
         
         // Checks if the command is allowed to run - the default method from Command class also checks userPermissions.
         // Even if you don't use all arguments, you are forced to match that method signature.
-        function hasPermission(\CharlotteDunois\Livia\Commands\Context $context, bool $ownerOverride = true) {
-            // return $context->message->member->roles->has('SERVER_STAFF_ROLE_ID');
-            return true;
-        }
+        
+        //function hasPermission(\CharlotteDunois\Livia\Commands\Context $context, bool $ownerOverride = true) {
+        //    // return $context->message->member->roles->has('SERVER_STAFF_ROLE_ID');
+        //    return true;
+        //}
         
         // Even if you don't use all arguments, you are forced to match that method signature.
         function run(   \CharlotteDunois\Livia\Commands\Context $context, 
@@ -36,7 +39,7 @@ return function ($client) {
                 // If you send any messages (doesn't matter how many),
                 // return (resolve) the Message instance, or an array of Message instances.
                 // Promises are getting automatically resolved.
-                
+                echo "In the command run()".PHP_EOL;
                 $context->reply("Hello old boy!!");
                 
         }
