@@ -3,5 +3,6 @@
     "token": "BOT TOKEN HERE",
     "ID_owner1" : "ID1",
     "ID_owner2" : "ID2",
-    "cmd_folder": "commands"
+    "cmd_folder": "commands",
+    "unknownCommandResponse" : true
 }

@@ -31,25 +31,27 @@ try {
      */
     $client = new \CharlotteDunois\Livia\Client(
         array(                                      // Client creations options
-            'owners' => array(
+            'commandPrefix' => $config["prefix"],
+            'owners' => array(                      
                 $config["ID_owner1"],
                 $config["ID_owner2"]
                 ),
-            'unknownCommandResponse' => false
+            'unknownCommandResponse' => $config["unknownCommandResponse"]
         ), 
         $loop);                                     // event loop
 
     /*
      * Registers default commands, command groups and argument types
      */
-    $client->registry->registerDefaultGroups()
-                     ->registerDefaultCommands()
-                     ->registerDefaultTypes();
+    $client->registry->registerDefaultTypes()
+                     ->registerDefaultGroups()
+                     ->registerDefaultCommands();
+                     
 
     /*
      * Register groups of commands.
      * Command files are located in the subfolder with name 'id'
-     * These subfolder are located in the commands folder specified in config.json
+     * These subfolders are located in the commands folder specified in config.json
      */
     $client->registry
         ->registerGroup(array(
@@ -62,7 +64,7 @@ try {
     /*
      * Register the commands located in the subfolder un der the commands folder
      */
-    $client->registry->registerCommandsIn(__DIR__ . $config['cmd_folder']);
+    $client->registry->registerCommandsIn(__DIR__ .'/'. $config['cmd_folder'] .'/');
 
     /*
      * Setup the callbacks for Client ready and error events
@@ -96,5 +98,5 @@ try {
  */
 catch ( \Exception $e)
 {
-    echo $e->getMessage();
+    echo "Error Initiating Bot: ". $e->getMessage();
 }
