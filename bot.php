@@ -56,7 +56,8 @@ try {
     $client->registry
         ->registerGroup(array(
             'id' => 'info',
-            'name' => 'Info' ))
+            'name' => 'Info' ));
+    $client->registry
         ->registerGroup(array(
             'id' => 'misc',
             'name' => 'Miscalanea' ));

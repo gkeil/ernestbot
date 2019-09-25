@@ -16,7 +16,7 @@ return function ($client) {
                 'description' => 'Replies to hello salutation.',
                 'guildOnly' => false
             ));
-            echo "In the command Contructor".PHP_EOL;
+            echo "In the command Contructor of Hello".PHP_EOL;
             
         }
         

@@ -10,30 +10,32 @@ return function ($client) {
     return (new class($client) extends \CharlotteDunois\Livia\Commands\Command {
         function __construct(\CharlotteDunois\Livia\Client $client) {
             parent::__construct($client, array(
-                'name' => 'ban',
+                'name' => 'clima',
                 'aliases' => array(),
-                'group' => 'moderation',
-                'description' => 'Bans an user.',
-                'guildOnly' => true,
+                'group' => 'info',
+                'description' => 'Provides weather conditions.',
+                'guildOnly' => false,
                 'throttling' => array( // Throttling is per-user
                     'usages' => 2,
                     'duration' => 3
                 ),
                 'args' => array(
                     array(
-                        'key' => 'user',
-                        'prompt' => 'Which user do you wanna ban?',
-                        'type' => 'member'
+                        'key' => 'city',
+                        'prompt' => 'Which to report wheather?',
+                        'type' => 'string'
                     )
                 )
             ));
+            echo "In the command Contructor of Clima".PHP_EOL;
         }
         
         // Checks if the command is allowed to run - the default method from Command class also checks userPermissions.
         // Even if you don't use all arguments, you are forced to match that method signature.
-        function hasPermission(\CharlotteDunois\Livia\Commands\Context $context, bool $ownerOverride = true) {
-            return $context->message->member->roles->has('SERVER_STAFF_ROLE_ID');
-        }
+        
+        //function hasPermission(\CharlotteDunois\Livia\Commands\Context $context, bool $ownerOverride = true) {
+        //    return $context->message->member->roles->has('SERVER_STAFF_ROLE_ID');
+        //}
         
         // Even if you don't use all arguments, you are forced to match that method signature.
         function run(\CharlotteDunois\Livia\Commands\Context $context, \ArrayObject $args,
